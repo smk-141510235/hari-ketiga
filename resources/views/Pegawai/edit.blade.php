@@ -66,7 +66,7 @@
       </div>
       <div class="form-group">
           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-              {!! Form::submit('Save', ['class' => 'btn btn-success form-control']) !!}
+              {!! Form::submit('Simpan', ['class' => 'btn btn-primary form-control']) !!}
           </div>
       </div>
     </div>

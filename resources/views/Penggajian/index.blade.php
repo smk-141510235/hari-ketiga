@@ -36,28 +36,26 @@
                                     <td>{{$no++}}</td>
                                     <td>{{$data->Tunjangan_pegawai->Pegawai->User->name}}</td>
                                     <td>{{$data->Jumlah_jam_lembur}} </td>
-                                    <td>{{$data->Jumlah_uang_lembur}} </td>
-                                    <td>{{$data->Gaji_pokok}} </td>
-                                    <td>{{$data->Total_gaji}} </td>
+                                    <td><?php echo 'Rp. '.number_format($data->Jumlah_uang_lembur, 2, ",", "."); ?></td> 
+                                    <td><?php echo 'Rp. '.number_format($data->Gaji_pokok, 2, ",", "."); ?></td> 
+                                    <td><?php echo 'Rp. '.number_format($data->Total_gaji, 2, ",", "."); ?></td> 
                                     <td>{{$data->updated_at}} </td>
                                     
                                     @if($data->Status_pengambilan == 0)
                                     
                                         <td>Belum Diambil </td>
-                                    
                                     @endif
                                     @if($data->Status_pengambilan == 1)
                                     
                                         <td>Sudah Diambil</td>
-                                    
                                     @endif
                                   <td>{{$data->Petugas_penerima}} </td>
-              <td><center><a href="{{ url('pegawai', $data->id) }}" class="btn btn-primary">Lihat</a></center></td> 
-              <a data-toggle="modal" href="#delete{{ $data->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i>Hapus</a>
+              <td><center><a href="{{ url('Penggajians', $data->id) }}" class="btn btn-primary">Lihat</a></center></td> 
+              <td><a data-toggle="modal" href="#delete{{ $data->id }}" class="btn btn-danger" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i>Hapus</a>
               @include('modals.del', [
               'url' => route('Penggajians.destroy', $data->id),
               'model' => $data
-              ])
+              ])</td>
               </th> 
             </tr> 
           @endforeach 

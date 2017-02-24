@@ -82,7 +82,7 @@ class PenggajianController extends Controller
        if (isset($WPenggajian)) {
            $error=true ;
            $tunjangan=Tunjangan_pegawai::paginate(10);
-           return view('FPenggajian.create',compact('tunjangan','error'));
+           return view('Penggajian.create',compact('tunjangan','error'));
        }
        elseif (!isset($lembur_pegawai)) {
             $nol = 0;
@@ -176,7 +176,7 @@ class PenggajianController extends Controller
      */
     public function destroy($id)
     {
-        Penggajian::find($id)->delete();
+         Penggajian::find($id)->delete();
         return redirect('Penggajians');
     }
 }

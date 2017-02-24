@@ -36,28 +36,26 @@
                                     <td><?php echo e($no++); ?></td>
                                     <td><?php echo e($data->Tunjangan_pegawai->Pegawai->User->name); ?></td>
                                     <td><?php echo e($data->Jumlah_jam_lembur); ?> </td>
-                                    <td><?php echo e($data->Jumlah_uang_lembur); ?> </td>
-                                    <td><?php echo e($data->Gaji_pokok); ?> </td>
-                                    <td><?php echo e($data->Total_gaji); ?> </td>
+                                    <td><?php echo 'Rp. '.number_format($data->Jumlah_uang_lembur, 2, ",", "."); ?></td> 
+                                    <td><?php echo 'Rp. '.number_format($data->Gaji_pokok, 2, ",", "."); ?></td> 
+                                    <td><?php echo 'Rp. '.number_format($data->Total_gaji, 2, ",", "."); ?></td> 
                                     <td><?php echo e($data->updated_at); ?> </td>
                                     
                                     <?php if($data->Status_pengambilan == 0): ?>
                                     
                                         <td>Belum Diambil </td>
-                                    
                                     <?php endif; ?>
                                     <?php if($data->Status_pengambilan == 1): ?>
                                     
                                         <td>Sudah Diambil</td>
-                                    
                                     <?php endif; ?>
                                   <td><?php echo e($data->Petugas_penerima); ?> </td>
-              <td><center><a href="<?php echo e(url('pegawai', $data->id)); ?>" class="btn btn-primary">Lihat</a></center></td> 
-              <a data-toggle="modal" href="#delete<?php echo e($data->id); ?>" class="btn btn-danger" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i>Hapus</a>
+              <td><center><a href="<?php echo e(url('Penggajians', $data->id)); ?>" class="btn btn-primary">Lihat</a></center></td> 
+              <td><a data-toggle="modal" href="#delete<?php echo e($data->id); ?>" class="btn btn-danger" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i>Hapus</a>
               <?php echo $__env->make('modals.del', [
               'url' => route('Penggajians.destroy', $data->id),
               'model' => $data
-              ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+              ], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?></td>
               </th> 
             </tr> 
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
